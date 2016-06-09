@@ -2,10 +2,11 @@
 #define CONTROLLEREXCEPTION_H
 
 #include <QtCore>
+#include <QException>
 
 /** ControllerException are caught in the controller thread's run method, and transported to the main thread for error handling.
   QtConcurrent::Exception is re-used for that purpose, since it already implements the necessary means for cloning. */
-class ControllerException: public QtConcurrent::Exception {
+class ControllerException: public QException {
 public:
     ControllerException( const QString& msg );
 
